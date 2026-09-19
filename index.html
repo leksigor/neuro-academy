@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuroAcademy — обучение нейронным сетям</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+  <header class="header">
+    <a class="logo" href="#home"><span class="logo-mark">⟨N⟩</span> NeuroAcademy</a>
+    <nav class="nav">
+      <a href="#home">Главная</a>
+      <a href="#path">Трек</a>
+      <a href="#playground">Песочница</a>
+      <a href="#lessons">Уроки</a>
+    </nav>
+    <button class="btn btn-ghost" id="themeToggle" type="button">Тема</button>
+  </header>
+  <main>
+    <section id="home" class="hero">
+      <p class="eyebrow">Интерактивный курс · без бэкенда · прямо в браузере</p>
+      <h1>Пойми нейронные сети,<br />а не просто выучи формулы</h1>
+      <p class="lead">Короткие уроки, визуализации нейронов, живые слайдеры весов и мини-эксперименты. От одного перцептрона до многослойной сети и XOR.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#lessons">Начать первый урок</a>
+        <a class="btn btn-ghost" href="#playground">Открыть песочницу</a>
+      </div>
+    </section>
+    <section id="path" class="section">
+      <h2>Трек обучения</h2>
+      <ol class="path">
+        <li><span>01</span>Что такое нейрон</li>
+        <li><span>02</span>Перцептрон</li>
+        <li><span>03</span>Функции активации</li>
+        <li><span>04</span>Ошибка и обучение</li>
+        <li><span>05</span>Многослойные сети</li>
+        <li><span>06</span>XOR своими руками</li>
+      </ol>
+    </section>
+    <section id="playground" class="section">
+      <h2>Песочница: один нейрон</h2>
+      <div class="card playground">
+        <div class="pg-controls">
+          <label>x₁ <input id="x1" type="range" min="-2" max="2" step="0.1" value="1" /><b id="x1v">1.0</b></label>
+          <label>x₂ <input id="x2" type="range" min="-2" max="2" step="0.1" value="0.5" /><b id="x2v">0.5</b></label>
+          <label>w₁ <input id="w1" type="range" min="-2" max="2" step="0.05" value="0.8" /><b id="w1v">0.80</b></label>
+          <label>w₂ <input id="w2" type="range" min="-2" max="2" step="0.05" value="-0.4" /><b id="w2v">-0.40</b></label>
+          <label>bias <input id="bias" type="range" min="-2" max="2" step="0.05" value="0.2" /><b id="biasv">0.20</b></label>
+          <label>активация
+            <select id="act">
+              <option value="sigmoid">sigmoid</option>
+              <option value="tanh">tanh</option>
+              <option value="relu">ReLU</option>
+              <option value="step">ступенька</option>
+            </select>
+          </label>
+        </div>
+        <div class="pg-viz">
+          <canvas id="neuronCanvas" width="520" height="280"></canvas>
+          <div class="pg-math">
+            <code id="formula">z = w₁x₁ + w₂x₂ + b</code>
+            <div class="out"><span>z = <b id="zVal">—</b></span><span>y = <b id="yVal">—</b></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="lessons" class="section">
+      <h2>Интерактивные уроки</h2>
+      <div class="lessons-layout">
+        <aside class="lesson-nav" id="lessonNav"></aside>
+        <article class="card lesson-body" id="lessonBody"></article>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">NeuroAcademy · 2026</footer>
+  <script src="js/net.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
